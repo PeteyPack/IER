@@ -49,26 +49,26 @@ DiffsigO1920 = (sigO19-sigO20)/sigO19*100   %Calculate the difference in standar
 figure
 a = histfit(TotstepApp2019,94);
 title('App 2019')
-xlabel('Amount of steps')
-ylabel('Amount of people')
+xlabel('Number of steps')
+ylabel('Number of people')
 
 figure
 b = histfit(TotstepApp2020,99);
 title('App 2020')
-xlabel('Amount of steps')
-ylabel('Amount of people')
+xlabel('Number of steps')
+ylabel('Number of people')
 
 figure
 c = histfit(TotstepOm2019,94);
 title('Om 2019')
-xlabel('Amount of steps')
-ylabel('Amount of people')
+xlabel('Number of steps')
+ylabel('Number of people')
 
 figure
 d = histfit(TotstepOm2020,99);
 title('Om 2020')
-xlabel('Amount of steps')
-ylabel('Amount of people')
+xlabel('Number of steps')
+ylabel('Number of people')
 
 
 DataCan = (40.5+22.4)/2;            %Average activity decline taken from the study 'The Impact of COVID-19 on Physical Activity Behavior and Well-Being of Canadians' https://doi.org/10.3390/ijerph17113899 
@@ -76,12 +76,14 @@ DataGer = 44.5;                     %Average activity decline taken from the stu
 DataIta = 65;                       %Average activity decline taken from the study 'COVID-19 lockdown: Physical activity, sedentary behaviour and sleep in Italian medicine students' https://doi-org.tudelft.idm.oclc.org/10.1080/17461391.2020.1842910
 DataChi = (30.6+37.0+18.0+22.5)/4;  %Average activity decline taken from the study 'Obesity and activity patterns before and during COVID-19 lockdown among youths in China' https://doi.org/10.1111/cob.12416
 
-X = categorical({'Ned App','Ned Om','Canada','Germany','Italy','China'});
-X = reordercats(X,{'Ned App','Ned Om','Canada','Germany','Italy','China'});
-y = [DiffsigA1920 DiffsigO1920 DataCan DataGer DataIta DataChi]
+X = categorical({'Netherlands App','Netherlands Om','Canada','Germany','Italy','China'});
+X = reordercats(X,{'Netherlands App','Netherlands Om','Canada','Germany','Italy','China'});
+y = [DiffsigA1920 DiffsigO1920 DataCan DataGer DataIta DataChi];
 figure
 bar(X,y)
 ylabel('Percentage difference')
 xlabel('Countries')
 
 
+[h,p,ci,stats] = ttest2(TotstepOm2019,TotstepOm2020,'Vartype','unequal')            %gives the hypothesis test result, p value, confidence interval and the test statistics
+[h,p,ci,stats] = ttest2(TotstepApp2019,TotstepApp2020,'Vartype','unequal')          %gives the hypothesis test result, p value, confidence interval and the test statistics
