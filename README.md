@@ -3,6 +3,7 @@
 Fitbit dataset: Data_IER
 
 For questions about the dataset, contact t.j.lugtmeijer@student.tudelft.nl
+
 2. Methodological information
 The data is collected during the firs week of the new school year in 2019 and in 2020. The test subjects were requested to keep track of the number of steps they take
 by using an Omron activity tracker and with a mobile phone application.
